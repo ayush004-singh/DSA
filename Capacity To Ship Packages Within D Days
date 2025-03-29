@@ -1,0 +1,48 @@
+public class PackageBS {
+    public static boolean check(int weights[],int mid , int days){
+        int work =0;
+        int daystaken = 1;
+        for(int i = 0; i < weights.length;i++){
+            if(weights[i] + work <=mid ){
+                work += weights[i];
+            }
+
+            else{
+                daystaken ++;
+                work = weights[i];
+            }
+        }
+
+        return days >= daystaken;
+    }
+
+    public static int PackageToShip(int weights[] ,int days ){
+        int ans = 0;
+        int lo =0 ;
+        int hi =0;
+
+        for(int weight: weights){
+            lo = Math.max(lo,weight);
+            hi += weight;
+        }
+            while(lo<=hi){
+                int mid = lo + (hi-lo)/2;
+                if(check(weights,mid,days)){
+                    ans  = mid;
+                    hi = mid-1;
+                }
+
+                else{
+                    lo = mid+1;
+                }
+            }
+                return ans;
+        }
+       public static void main(String[] args) {
+
+        int weights [] = {1,2,3,4,5,6,7,8,9,10};
+        int days =5;
+        int ans = PackageToShip(weights,days);
+        System.out.println("The number items required to ship per days is " +ans);
+    }
+}
