@@ -1,0 +1,23 @@
+class LexSort
+{
+    //Function to return the lexicographically sorted power-set of the string.
+    static ArrayList<String> powerSet(String s)
+    {
+        // add your code here
+        ArrayList<String> l = new ArrayList<>();
+        GeneratePowerSet(s,"",0,l);
+        return l;
+    }
+        
+        public static void GeneratePowerSet(String s,String curr ,int i, ArrayList<String>  l){
+     
+        if(i == s.length()){
+            l.add(curr);
+            return ;
+        }
+        
+        GeneratePowerSet(s,curr,i+1,l);
+        
+        GeneratePowerSet(s,curr+s.charAt(i) , i+1,l);
+        }
+    }
