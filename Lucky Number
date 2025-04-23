@@ -1,0 +1,25 @@
+class Solution
+{
+    // n: Input n
+    // Return True if the given number is a lucky number else return False
+    public static boolean isLucky(int n)
+    {
+        
+       return number(n,2);
+        
+    }
+    
+    public static boolean number(int n,int step){
+        
+        if(n<step){
+            return true;
+        }
+        
+        if(n%step==0){
+            return false;
+            
+        }
+        int N = n-(n/step);
+        return number(N,step+1);
+    }
+}
