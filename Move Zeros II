@@ -1,0 +1,30 @@
+public class Moveallzeroes {
+
+    public static int [] moveAllZeroes(int arr[]) {
+        int n = arr.length;
+        int j = 0; // Pointer for the position of non-zero elements
+
+        // Traverse the array
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0) {
+                arr[j] = arr[i]; // Move non-zero element to the front
+                j++;
+            }
+        }
+
+        // Fill the remaining positions with zeroes
+        while (j < n) {
+            arr[j++] = 0;
+        }
+
+        return arr; // Return the modified array
+    }
+    public static void main(String[] args) {
+        int arr[] = {0, 1, 0, 3, 12}; // Example input array
+        int[] result = moveAllZeroes(arr); // Call the function to move all zeroes
+        for (int num : result) {
+            System.out.print(num + " "); // Print the modified array
+        }
+        // Output: 1 3 12 0 0
+    }
+}
