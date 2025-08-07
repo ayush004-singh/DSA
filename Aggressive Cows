@@ -35,3 +35,12 @@ class Solution {
         return false;
     }
 }
+
+public class main{
+    public static void main(String arge[]){
+        Solution sl = new Solution();
+        int arr[] = {2,5,9,24};
+        int k =3;
+        System.out.println(sl.aggressiveCows(arr,k));
+    }
+}
