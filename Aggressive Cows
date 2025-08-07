@@ -38,9 +38,9 @@ class Solution {
 
 public class main{
     public static void main(String arge[]){
-        Solution sl = new Solution();
+        
         int arr[] = {2,5,9,24};
         int k =3;
-        System.out.println(sl.aggressiveCows(arr,k));
+        System.out.println(Solution.aggressiveCows(arr,k));
     }
 }
