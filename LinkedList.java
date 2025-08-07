@@ -25,6 +25,52 @@ class Node{
 
         return head;
     }
+
+    // Inter at last
+
+    public static Node InsertAtEnd(Node head,int val){
+        Node curr = new Node(val);
+        Node currNode =head;
+        while(currNode.next!=null){
+            currNode=currNode.next;
+        }
+        currNode.next = curr;
+        return head;
+        
+    }
+
+    // Insert At Kth Position k
+
+    public static Node insertAtPosition(Node head, int data, int pos) {
+    Node newNode = new Node(data); // Naya node banaya
+
+   
+    if (pos == 0) {
+        newNode.next = head;
+        return newNode;
+    }
+
+    Node curr = head;
+    int i = 0;
+
+    
+    while (curr != null && i < pos - 1) {
+        curr = curr.next;
+        i++;
+    }
+
+    if (curr == null) {
+        System.out.println("Invalid position: List is too short.");
+        return head; 
+    }
+
+    
+    newNode.next = curr.next;
+    curr.next = newNode;
+
+    return head;
+}
+
 }
 public class LinkedList {
     public static void main(String[] args) {
@@ -36,6 +82,8 @@ public class LinkedList {
 
         
         N=Node.InsertAtStart(N,20);
+        N = Node.InsertAtEnd(N, 90);
+       N = Node.insertAtPosition(N, 25, 3);
         Node.printList(N);
     }
     
