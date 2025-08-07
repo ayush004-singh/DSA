@@ -16,7 +16,15 @@ class Node{
 
     }
 
-    
+    // Insert in start
+
+    public static Node InsertAtStart(Node head,int val){
+        Node curr = new Node(val);
+        curr.next=head;
+        head=curr;
+
+        return head;
+    }
 }
 public class LinkedList {
     public static void main(String[] args) {
@@ -26,8 +34,9 @@ public class LinkedList {
     N.next = new Node(60);
         N.next.next= new Node(70);
 
+        
+        N=Node.InsertAtStart(N,20);
         Node.printList(N);
-    
     }
     
 }
