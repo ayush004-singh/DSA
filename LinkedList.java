@@ -96,7 +96,39 @@ public static Node DeleteAtLast(Node head){
     curr.next=null;
     return head;
 }
-}// End of LL class
+
+public static Node DeleteAtKthPosition(Node head,int pos){
+     if (head == null) {
+        System.out.println("List is empty");
+        return null;
+    }
+
+    if (pos <= 0) {
+        System.out.println("Invalid position: " + pos);
+        return head;
+    }
+    Node curr = head;
+    int i=0;
+    while(curr.next.next!=null||i<pos-2) // pos-2 to get the indexing from 1
+    {
+        curr = curr.next;
+        i++;
+    }
+
+
+    if (curr == null || curr.next == null) {
+        System.out.println("Invalid position: " + pos);
+        return head;
+    }
+
+    curr.next=curr.next.next;
+    return head;
+}
+
+
+}
+
+// End of LL class
 public class LinkedList {
     public static void main(String[] args) {
         
@@ -111,6 +143,7 @@ public class LinkedList {
        N=Node.DeleteAtFirst(N);
        N=Node.InsertAtStart(N,20);
        N=Node.DeleteAtLast(N);
+       N=Node.DeleteAtKthPosition(N, 3);
         Node.printList(N);
 
     }
