@@ -54,7 +54,7 @@ class Node{
     int i = 0;
 
     
-    while (curr != null && i < pos - 1) {
+    while (curr != null && i < pos - 2) {
         curr = curr.next;
         i++;
     }
@@ -71,7 +71,18 @@ class Node{
     return head;
 }
 
+// Deletion At Start
+
+public static Node DeleteAtFirst(Node head){
+    if(head==null){
+        System.out.println("List is empty");
+        return head;
+    }
+    head = head.next;
+    return head;
 }
+
+}// End of LL class
 public class LinkedList {
     public static void main(String[] args) {
         
@@ -81,10 +92,12 @@ public class LinkedList {
         N.next.next= new Node(70);
 
         
-        N=Node.InsertAtStart(N,20);
         N = Node.InsertAtEnd(N, 90);
        N = Node.insertAtPosition(N, 25, 3);
+       N=Node.DeleteAtFirst(N);
+       N=Node.InsertAtStart(N,20);
         Node.printList(N);
+
     }
     
 }
