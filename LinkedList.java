@@ -82,6 +82,20 @@ public static Node DeleteAtFirst(Node head){
     return head;
 }
 
+
+public static Node DeleteAtLast(Node head){
+    if(head ==null ){
+        System.out.println("list is empty");
+        return head;
+    }
+    Node curr = head;
+    while(curr.next.next!=null){
+        curr= curr.next;
+    }
+
+    curr.next=null;
+    return head;
+}
 }// End of LL class
 public class LinkedList {
     public static void main(String[] args) {
@@ -96,6 +110,7 @@ public class LinkedList {
        N = Node.insertAtPosition(N, 25, 3);
        N=Node.DeleteAtFirst(N);
        N=Node.InsertAtStart(N,20);
+       N=Node.DeleteAtLast(N);
         Node.printList(N);
 
     }
