@@ -82,6 +82,7 @@ public static Node DeleteAtFirst(Node head){
     return head;
 }
 
+// To Delete The Last Node In LinkedList
 
 public static Node DeleteAtLast(Node head){
     if(head ==null ){
@@ -96,6 +97,8 @@ public static Node DeleteAtLast(Node head){
     curr.next=null;
     return head;
 }
+
+// Delete The Kth Node In LinkedList    
 
 public static Node DeleteAtKthPosition(Node head,int pos){
      if (head == null) {
@@ -124,12 +127,58 @@ public static Node DeleteAtKthPosition(Node head,int pos){
     curr.next=curr.next.next;
     return head;
 }
+        //Add Array in Linked List
 
 
+public static Node addArrya(Node head,int [] arr){
+    if(arr.length<1){
+        return null;
+    }
+    Node curr = head;
+    arr[0]=curr;
+    for(int i=1;i<arr.length;i++){
+        curr.next = arr[i];
+        curr = curr.next;
+    }
+
+    return head;
+}
+
+
+// Check if LinkedList has loop
+
+public boolean hasLoop(Node head) {
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if (slow == fast) return true; // Loop detected
+    }
+
+    return false;
+}
+
+    // TO Find the Middle of the Linked List
+
+public Node findMiddle(Node head) {
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+        slow = slow.next;       // 1 step
+        fast = fast.next.next;  // 2 steps
+    }
+
+    return slow;
+}
 }
 
 // End of LL class
 public class LinkedList {
+
     public static void main(String[] args) {
         
 
@@ -149,3 +198,5 @@ public class LinkedList {
     }
     
 }
+
+// End Of Main Class
