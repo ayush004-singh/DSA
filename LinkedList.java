@@ -174,6 +174,23 @@ public Node findMiddle(Node head) {
 
     return slow;
 }
+
+       // Reverse the LinkedList
+
+       public static Node ReverseLinkedList(Node head){
+        Node prev =null;
+        Node curr = head;
+        Node next=null;
+
+        while(curr.next!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev = curr;
+            curr = next;
+        }
+
+        return prev;
+       }
 }
 
 // End of LL class
@@ -183,16 +200,27 @@ public class LinkedList {
         
 
     Node N = new Node(50);
+
     N.next = new Node(60);
+
+    
         N.next.next= new Node(70);
 
         
         N = Node.InsertAtEnd(N, 90);
+
        N = Node.insertAtPosition(N, 25, 3);
+
        N=Node.DeleteAtFirst(N);
+
        N=Node.InsertAtStart(N,20);
+
        N=Node.DeleteAtLast(N);
+
        N=Node.DeleteAtKthPosition(N, 3);
+
+       N = Node.ReverseLinkedList(N);
+
         Node.printList(N);
 
     }
