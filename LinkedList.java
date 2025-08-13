@@ -130,20 +130,15 @@ public static Node DeleteAtKthPosition(Node head,int pos){
         //Add Array in Linked List
 
 
-public static Node addArrya(Node head,int [] arr){
-    if(arr.length<1){
-        return null;
-    }
-    Node curr = head;
-    arr[0]=curr;
-    for(int i=1;i<arr.length;i++){
-        curr.next = arr[i];
-        curr = curr.next;
+public static Node addArray(Node head, int[] arr) {
+    if (arr.length < 1) return head;
+
+    for (int val : arr) {
+        head = InsertAtEnd(head, val); // Reuse your existing method
     }
 
     return head;
 }
-
 
 // Check if LinkedList has loop
 
