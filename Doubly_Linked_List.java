@@ -83,6 +83,37 @@ public static Node InsertAtTheKthPos(Node head,int val,int pos){
 
 }
 
+//Delete from the start of doubly linked list 
+
+public static Node DeleteFromStart(Node head){
+    if(head==null||head.next==null){
+        return null;
+    }
+
+    else{
+        head = head.next;
+        head.prev=null;
+    }
+
+    return head;
+}
+
+public static Node DeleteFromEnd(Node head){
+    if(head==null||head.next==null){
+        return null;
+    }
+
+    Node curr=head;
+
+    while(curr.next!=null){
+        curr=curr.next;
+    }
+    curr.prev.next = null;
+
+    return head;
+}
+
+// Delete from the kth position of the doubly linked list
 
 public static Node DeleteAtTheKthPosition(Node head,int pos){
         if (head == null || pos < 1) return head;
@@ -104,6 +135,8 @@ public static Node DeleteAtTheKthPosition(Node head,int pos){
     }
     return head;
 }
+
+// Reverse the doubly linked list
 
 public static Node ReverseList(Node head){
      if (head == null || head.next == null) return head;
@@ -135,6 +168,7 @@ public class Doubly_Linked_List {
     N = Node.InsertAtTheEnd(N, 30);
     N = Node.InsertAtTheStart(N, 60);
     N= Node.InsertAtTheKthPos(N, 45, 1);
+    
     Node.PrintList(N);
  }
     
