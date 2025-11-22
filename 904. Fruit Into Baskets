@@ -1,0 +1,35 @@
+class Solution {
+    public int totalFruit(int[] fruits) {
+      
+        Map<Integer, Integer> freq = new HashMap<>();
+        int k=2;
+        int low = 0;
+        int maxLen = -1;   
+
+        for (int high = 0; high < fruits.length; high++) {
+            
+            int Right = fruits[high];
+            freq.put(Right, freq.getOrDefault(Right, 0) + 1);
+
+            while (freq.size() > k) {
+                
+                int Left = fruits[low];
+                freq.put(Left, freq.get(Left) - 1);
+                if (freq.get(Left) == 0) {
+                    freq.remove(Left);
+                    
+                }
+                
+                low++;
+            }
+
+           
+            if (freq.size()== k || freq.size()<k) {
+                
+                maxLen = Math.max(maxLen, high - low + 1);
+            }
+        }
+
+        return maxLen;   
+    }
+}
