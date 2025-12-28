@@ -1,0 +1,42 @@
+class Solution {
+    private static int[][] merge(int a[][]){
+         if (a.length == 0) return a;
+          Arrays.sort(a, (x, y) -> x[0] - y[0]);
+          List<int[]> li= new ArrayList<>();
+          int s1=a[0][0];
+          int e1=a[0][1];
+
+          for(int i=1;i<a.length;i++){
+            int s2=a[i][0];
+            int e2=a[i][1];
+            if(s2<=e1){
+                e1=Math.max(e1,e2);
+                continue;
+            }
+            else{
+               li.add(new int[]{s1,e1});
+               s1=s2;
+               e1=e2; 
+            }
+          }
+
+          li.add(new int[]{s1,e1});
+
+          return li.toArray(new int[li.size()][]);
+    }
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> list = new ArrayList<>();
+
+        // Add existing intervals
+        for (int[] interval : intervals) {
+            list.add(interval);
+        }
+
+        // Add new interval
+        list.add(newInterval);
+
+        // Convert List → Array
+        int[][] arr = list.toArray(new int[list.size()][]);
+        return merge(arr);
+    }
+}
